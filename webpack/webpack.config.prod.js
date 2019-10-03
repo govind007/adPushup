@@ -24,11 +24,19 @@ module.exports = merge(common, {
   ],
   module: {
     rules: [
-      {
-        test: /\.(js)$/,
-        exclude: /node_modules/,
-        use: 'babel-loader'
-      },
+        {
+            test: /\.(js|jsx)$/,
+            include: Path.resolve(__dirname, '../src'),
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: [
+                        "@babel/preset-env",
+                        "@babel/preset-react"
+                    ]
+                }
+            }
+        },
       {
         test: /\.s?css/i,
         use : [

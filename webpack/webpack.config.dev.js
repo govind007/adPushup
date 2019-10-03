@@ -20,18 +20,17 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.(js)$/,
+        test: /\.(js|jsx)$/,
         include: Path.resolve(__dirname, '../src'),
-        enforce: 'pre',
-        loader: 'eslint-loader',
-        options: {
-          emitWarning: true,
+        use: {
+            loader: 'babel-loader',
+            options: {
+                presets: [
+                    "@babel/preset-env",
+                    "@babel/preset-react"
+                ],
+            }
         }
-      },
-      {
-        test: /\.(js)$/,
-        include: Path.resolve(__dirname, '../src'),
-        loader: 'babel-loader'
       },
       {
         test: /\.s?css$/i,
