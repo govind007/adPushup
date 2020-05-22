@@ -1,0 +1,29 @@
+{
+  "name": "adpushup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node node_scripts/enforce-node-version.js",
+    "revert": "node node_scripts/upload-to-aws.js revert --env=staging",
+    "revertprod": "node node_scripts/upload-to-aws.js revert --env=prod",
+    "hotfix:new": "node node_scripts/new-hotfix.js",
+    "hotfix:update": "node node_scripts/update-hotfix.js",
+    "create-release": "node node_scripts/create-release.js --type=release",
+    "create-hotfix-release": "node node_scripts/create-release.js --type=hotfix",
+    "create-staging-release": "node node_scripts/create-release.js --type=staging",
+    "deploy": "node node_scripts/upload-to-aws.js deploy --env=staging",
+    "deploy-release": "node node_scripts/upload-to-aws.js deploy --env=prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/govind007/adPushup.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/govind007/adPushup/issues"
+  },
+  "homepage": "https://github.com/govind007/adPushup#readme"
+}
